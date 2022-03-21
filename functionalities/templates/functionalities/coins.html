@@ -1,5 +1,22 @@
 {% extends 'index/index.html' %}
 
 {% block 'header_block' %}
-    <h1>Bitcoin</h1>
+    <h1>Criptomonedas</h1>
+    <form action='' method='get'>
+        {% csrf_token %}
+        <table>
+            {{form.as_table}}
+        </table>
+        <input type='submit' value='Buscar'>
+    </form>
+    <br>
+    <br>
+    <br>
+    {% for coin in coins_array %}
+        <ul>
+            <li>
+                {{coin}}
+            </li>
+        </ul>
+    {% endfor %}
 {% endblock 'header_block' %}
