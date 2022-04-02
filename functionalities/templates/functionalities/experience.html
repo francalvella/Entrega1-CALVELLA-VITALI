@@ -7,6 +7,21 @@
         <table>
             {{form.as_table}}
         </table>
-        <input type='submit' value='Agregar'>
+        <button class="button">Publicar</button>
     </form>
+
+    <div>
+        <h3>
+            Experiencias
+        </h3>
+        <ul>
+        {% for exp in experiences_array %}
+            <li>
+                <b>{{exp}}</b>: {{exp.experience}}
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+    
+
 {% endblock 'header_block' %}

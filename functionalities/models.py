@@ -26,5 +26,5 @@ class Experience(models.Model):
     experience = models.CharField(max_length=150)
 
     def __str__(self):
-        return f'{self.user}´s experience'
+        return f'{self.user}'
     

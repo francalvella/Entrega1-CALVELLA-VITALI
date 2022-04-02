@@ -1,22 +1,30 @@
 {% extends 'index/index.html' %}
 
 {% block 'header_block' %}
-    <h1>Criptomonedas</h1>
-    <form action='' method='get'>
-        {% csrf_token %}
-        <table>
-            {{form.as_table}}
-        </table>
-        <input type='submit' value='Buscar'>
-    </form>
-    <br>
-    <br>
-    <br>
+<div>
+        <h1>Criptomonedas</h1>
+        <form class="form" action='' method='get'>
+            {% csrf_token %}
+            <table>
+                {{form.as_table}}
+            </table>
+            <button class="button">Buscar</button>
+        </form>
+</div>
+<br>
+<br>
+<br>
+<div>
+    <h3>
+        Lista de Criptomonedas
+    </h3>
+    <ul>
     {% for coin in coins_array %}
-        <ul>
-            <li>
-                {{coin}}
-            </li>
-        </ul>
-    {% endfor %}
+        <li>
+            {{coin}}
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+    
 {% endblock 'header_block' %}

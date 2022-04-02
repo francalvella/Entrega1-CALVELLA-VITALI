@@ -46,14 +46,16 @@ def post_user(request):
 
 
 def post_experience(request):
+    experiences_array = Experience.objects.all()
+    
     if request.method == 'POST':
         form = experience_post_form(request.POST)
         if form.is_valid():
             data = form.cleaned_data
             review = Experience(user=data['user'], ocupation=data['ocupation'], experience=data['experience'])
             review.save()
-            return redirect('index')
+            return render(request, 'functionalities/experience.html', {'form': form, 'experiences_array': experiences_array})
             
     
     form = experience_post_form
-    return render(request, 'functionalities/experience.html', {'form': form})
+    return render(request, 'functionalities/experience.html', {'form': form, 'experiences_array': experiences_array})
