@@ -1,0 +1,14 @@
+{% extends 'index/index.html' %}
+
+{% block 'header_block' %}
+<p>
+    <a href={%url 'coins'%}>
+        Volver
+    </a>
+</p>
+<form action='' method='post' autocomplete="off">
+    {% csrf_token %}
+    ¿Seguro que desea borrar a {{object}}?
+    <button class="delete-button">Borrar</button>
+</form>
+{% endblock 'header_block' %}

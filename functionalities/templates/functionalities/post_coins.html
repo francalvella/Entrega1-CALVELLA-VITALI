@@ -1,10 +1,15 @@
 {% extends 'index/index.html' %}
 
 {% block 'header_block' %}
+<p>
+    <a href={%url 'coins'%}>
+        Volver
+    </a>
+</p>
     <h1>
         ¿Conoces más criptomonedas? ¡Agregala!
     </h1>
-    <form action='' method='post'>
+    <form action='' method='post' autocomplete="off">
         {% csrf_token %}
         <table>
             {{form.as_table}}

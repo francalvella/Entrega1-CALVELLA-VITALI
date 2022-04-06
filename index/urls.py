@@ -1,12 +1,13 @@
 from django.urls import path, include
-
 import functionalities
-from .views import index
-from functionalities.views import post_user
+from .views import index, login_view
+from django.contrib.auth.views import LogoutView
+
+
 
 urlpatterns = [
     path('', index, name='index'),
-    path('login/', functionalities.views.post_user, name='post_user'),
+    path('login/',login_view, name='login'),
     path('coins/', include('functionalities.urls')),
-    
+    path('logout/', LogoutView.as_view(template_name='index/logout.html'), name='logout')
 ]

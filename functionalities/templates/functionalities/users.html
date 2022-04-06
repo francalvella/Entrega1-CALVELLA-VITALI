@@ -2,7 +2,7 @@
 
 {% block 'header_block' %}
     <h1>Crea tu usuario</h1>
-    <form action='' method='post'>
+    <form action='' method='post' autocomplete="off">
         {% csrf_token %}
         <table>
             {{form.as_table}}

@@ -1,0 +1,13 @@
+{% extends 'index/index.html' %}
+
+{% block 'header_block' %}
+<p>
+    <a href={%url 'coins'%}>
+        Volver
+    </a>
+</p>
+<p>
+    <li>Nombre: <b>{{object.name}}</b></li>
+    <li>Valor: <b>{{object.value}} U$D</b></li>
+</p>
+{% endblock 'header_block' %}

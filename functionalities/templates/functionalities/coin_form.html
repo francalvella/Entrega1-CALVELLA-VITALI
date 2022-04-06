@@ -1,0 +1,16 @@
+{% extends 'index/index.html' %}
+
+{% block 'header_block' %}
+<p>
+    <a href={%url 'coins'%}>
+        Volver
+    </a>
+</p>
+<form action='' method='post' autocomplete="off">
+    {% csrf_token %}
+    <table>
+        {{form.as_table}}
+    </table>
+    <button class="button">Editar</button>
+</form>
+{% endblock 'header_block' %}

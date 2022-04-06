@@ -17,7 +17,7 @@ class Coin(models.Model):
     value = models.FloatField()
     
     def __str__(self):
-        return f'{self.name} - {self.value} U$D'
+        return f'{self.name}'
     
     
 class Experience(models.Model):

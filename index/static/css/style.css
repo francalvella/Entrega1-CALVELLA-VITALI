@@ -5,6 +5,8 @@
 
 a {
     text-decoration: none;
+    color: #000;
+    font-weight: 700;
 }
 
 
@@ -17,7 +19,8 @@ a {
 
 
 .side-nav-container {
-    background-color: #1fc71f;
+    /* background-color: #1fc71f; */
+    background-color: #000;
 }
     .side-nav {
         display: flex;
@@ -28,7 +31,7 @@ a {
             padding: 15px;
         }
             .side-nav-element > a {
-                color: #000;
+                color: #fff;
                 font-weight: 700;
                 font-size: 20px;
                 letter-spacing: 2px;
@@ -42,7 +45,7 @@ a {
 
 
 .header-container {
-    background-color: #000;
+    background-color: #141414;
     height: 150px;
     padding-top: 10px;
     position: relative;
@@ -171,6 +174,7 @@ a {
             border: none;
             outline: none;
             background-color: #99ff99;
+            font-weight: 700;
         } 
 
         form > button:hover {
@@ -180,13 +184,25 @@ a {
             outline: none;
             background-color: #bbffbb;
             transition: .3s;
+            font-weight: 700;
         } 
 
         td > input {
             background: transparent;
             border: none;
+            outline: none;
             border-bottom: 1px solid #bbffbb;
             color: #fefefe;
+            
+        }
+
+        td > input:focus {
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid #efef33;
+            color: #fefefe;
+            transition: .3s;
+
             
         }
 
@@ -202,6 +218,32 @@ a {
         .model-actions {
             background-color: #1fc71f;
             padding: 5px;
+        }
+
+        .edit-views {
+            color: #1fc71f;
+        }
+
+        .delete-views {
+            color: #ef4444;
+        }
+
+        .delete-button {
+            padding: 5px 15px;
+            cursor: pointer;
+            border: none;
+            outline: none;
+            background-color: #ef4444;
+            font-weight: 700;
+        }
+
+        .delete-button:hover {
+            padding: 5px 15px;
+            cursor: pointer;
+            border: none;
+            outline: none;
+            background-color: #fc2a2a;
+            transition: background-color .3s;
         }
 
 .footer-container {
