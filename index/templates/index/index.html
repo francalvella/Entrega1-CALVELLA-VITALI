@@ -14,17 +14,17 @@
         <ul class="side-nav">
             {% if request.user.is_authenticated %}
             <li class="side-nav-element">
-                <a href="" class="side-nav-text">Editar Perfil</a>
+                <a href={% url 'edit' %} class="side-nav-text">Editar Perfil</a>
             </li>
             <li class="side-nav-element">
                 <a href={% url 'logout' %} class="side-nav-text">Salir</a>
             </li>
             {% else %}
             <li class="side-nav-element">
-                <a href={% url 'login' %} class="side-nav-text">Inicio Sesion</a> Inicio Sesion
+                <a href={% url 'login' %} class="side-nav-text">Inicio Sesion</a> 
             </li>
             <li class="side-nav-element">
-                <a href='#' class="side-nav-text">Crear Usuario</a> Crear Usuario
+                <a href={% url 'signin' %} class="side-nav-text">Crear Usuario</a>
             </li>
             {% endif %}
         </ul>
