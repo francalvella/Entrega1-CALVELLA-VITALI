@@ -1,6 +1,6 @@
 from django.shortcuts import redirect, render
 
-from functionalities.models import Coin, Experience, User
+from functionalities.models import Coin, Experience
 from .forms import coin_search_form, coins_post_form, experience_post_form, user_post_form
 from django.views.generic import DetailView
 from django.views.generic.edit import UpdateView, DeleteView
