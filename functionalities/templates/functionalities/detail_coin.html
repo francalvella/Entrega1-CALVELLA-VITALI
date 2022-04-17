@@ -9,5 +9,11 @@
 <p>
     <li>Nombre: <b>{{object.name}}</b></li>
     <li>Valor: <b>{{object.value}} U$D</b></li>
+    <li>Información:{% if object.info %}
+        {{object.info}}
+        {% else %}
+        No hay información de esta moneda
+        {% endif %}
+    </li>
 </p>
 {% endblock 'header_block' %}

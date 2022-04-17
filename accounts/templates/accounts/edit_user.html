@@ -6,7 +6,7 @@
         Volver
     </a>
 </p>
-<form action={%url 'edit'%} method='post' autocomplete="off">
+<form action={%url 'edit'%} method='post' autocomplete="off" enctype='multipart/form-data'>
     {% csrf_token %}
     <table>
         {{form.as_table}}

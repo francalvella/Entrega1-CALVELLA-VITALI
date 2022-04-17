@@ -14,6 +14,9 @@
         <ul class="side-nav">
             {% if request.user.is_authenticated %}
             <li class="side-nav-element">
+                <img src={{avatar_url}} alt="Foto de Perfil" height='30' style="border-radius: 8px">
+            </li>
+            <li class="side-nav-element">
                 <a href={% url 'edit' %} class="side-nav-text">Editar Perfil</a>
             </li>
             <li class="side-nav-element">
@@ -38,10 +41,16 @@
         <nav class="nav-container">            
                 <ul class="nav-list">
                     <li class="nav-element">
-                        <a class="nav-text" id="sesion" href="#">NFTs</a> 
+                        <a class="nav-text" id="page" href={% url 'index' %}>Home</a> 
                     </li>
                     <li class="nav-element">
-                        <a class="nav-text" id="sesion" href="#">Smart Contracts</a> 
+                        <a class="nav-text" id="page" href={% url 'index' %}>Noticias</a> 
+                    </li>
+                    <li class="nav-element">
+                        <a class="nav-text" id="nfts" href={% url 'nfts' %}>NFTs</a> 
+                    </li>
+                    <li class="nav-element">
+                        <a class="nav-text" id="contracts" href="#">Smart Contracts</a> 
                     </li>
                     <li class="nav-element" id="coins">
                         <a class="nav-text" href={% url 'coins' %}>Criptomonedas</a>  
@@ -50,7 +59,7 @@
                                 <a class="coin-list-text" href={% url 'post_coins' %}>Agregar Moneda</a>
                             </li>
                             <li class="coin-list-element">
-                                <a class="coin-list-text" href={% url 'post_experience' %}>Deja tu experiencia!</a>
+                                <a class="coin-list-text" href={% url 'post_experience' %}>Experiencias</a>
                             </li>
                         </ul>  
                     </li>

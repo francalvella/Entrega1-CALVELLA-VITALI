@@ -1,0 +1,42 @@
+{% extends 'index/index.html' %}
+
+{% block 'header_block' %}
+<p>
+    <a href={%url 'index'%}>
+        Volver
+    </a>
+</p>
+<div>
+    <h1>Casos Smart Contracts</h1>
+    <form class="form" action='' method='get' autocomplete="off">
+        {% csrf_token %}
+        <table>
+            {{form.as_table}}
+        </table>
+        <button class="button">Buscar</button>
+    </form>
+</div>
+<p>
+    <a href={%url 'post_coins'%}>
+        Agregar casos de Smart Contracts
+    </a>
+</p>
+<br>
+<br>
+<br>
+<div>
+    <h3>
+        Casos
+    </h3>
+    {% comment %} <ul>
+    {% for coin in coins_array %}
+        <li>
+           <a href={%url 'detail_coin' coin.id%}>{{coin}}<a>
+           <a class='edit-views' href={%url 'edit_coin' coin.id%}>Editar<a>
+           <a class='delete-views' href={%url 'delete_coin' coin.id%}>Borrar<a>
+        </li>
+        {% endfor %}
+    </ul> {% endcomment %}
+</div>
+    
+{% endblock 'header_block' %}

@@ -12,15 +12,19 @@
 
     <div>
         <h3>
-            Experiencias
+            Experiencias con Criptomonedas
         </h3>
+        {% if experiences_array %}
         <ul>
-        {% for exp in experiences_array %}
+            {% for exp in experiences_array %}
             <li>
                 <b>{{exp}}</b>: {{exp.experience}}
             </li>
             {% endfor %}
         </ul>
+        {% else %}
+        <span>No hay experiencias aún. </span>
+        {% endif %}
     </div>
     
 

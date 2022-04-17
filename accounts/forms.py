@@ -15,6 +15,7 @@ class Project_user_form(UserCreationForm):
 
 
 class Edit_user(forms.Form):
+    avatar = forms.ImageField(required=False)
     email = forms.CharField()
     first_name = forms.CharField(max_length=20, label='Nombre', required=False)
     last_name = forms.CharField(max_length=20, label='Apellido', required=False)
