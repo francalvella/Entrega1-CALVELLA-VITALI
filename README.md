@@ -1,4 +1,6 @@
 AUTORES: Franco Calvella y Franco Vitali Romani.
+ACLARACIÓN: El video se subió en el proyecto, no logre a subirlo a GitHub porque pesaba demasiado.
+
 
 1 La parte inicial es llamada 'Inicio' y corresponde al index.html
 2 Podemos tanto crear nuestro usuario o iniciar sesion con un usuario ya creado.
