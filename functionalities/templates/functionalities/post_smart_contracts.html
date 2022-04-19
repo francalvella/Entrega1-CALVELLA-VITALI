@@ -2,14 +2,15 @@
 
 {% block 'header_block' %}
 <p>
-    <a href={%url 'coins'%}>
+    <a href={%url 'smart_contracts'%}>
         Volver
     </a>
 </p>
 {% endblock 'header_block' %}
 {% block 'body_block' %}
-<h1>
-        ¿Conoces más criptomonedas? ¡Agregala!
+
+    <h1>
+        ¿Tuviste experiencias con Smart Contracts? ¡Agregala!
     </h1>
     <form action='' method='post' autocomplete="off">
         {% csrf_token %}
@@ -18,6 +19,7 @@
         </table>
         <button class="button">Agregar</button>
     </form>
+
 {% endblock 'body_block' %}
 {% block background_block %}
 {% endblock background_block %}

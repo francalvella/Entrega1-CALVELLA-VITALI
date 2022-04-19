@@ -2,16 +2,16 @@
 
 {% block 'header_block' %}
 <p>
-    <a href={%url 'coins'%}>
+    <a href={%url 'article'%}>
         Volver
     </a>
 </p>
 {% endblock 'header_block' %}
 {% block 'body_block' %}
 <h1>
-        ¿Conoces más criptomonedas? ¡Agregala!
+        Escribe las ultimas noticias del blockchain
     </h1>
-    <form action='' method='post' autocomplete="off">
+    <form action='' method='post' autocomplete="off" enctype='multipart/form-data'>
         {% csrf_token %}
         <table>
             {{form.as_table}}

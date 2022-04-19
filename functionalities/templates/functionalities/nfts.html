@@ -6,8 +6,10 @@
         Volver
     </a>
 </p>
+{% endblock 'header_block' %}
+{% block 'body_block' %}
 <div>
-    <h1>NFTs</h1>
+    <h1 style="text-align:center">NFTs</h1>
     <form class="form" action='' method='get' autocomplete="off">
         {% csrf_token %}
         <table>
@@ -30,15 +32,16 @@
     </h3>
     {% if nfts_array %}
         <ul>
-        {% for nft in nfts_array %}
+            {% for nft in nfts_array %}
             <li>
-               <span><b>{{nft.user}}</b> {{nft.title}}</span> <a href={%url 'detail_nfts' nft.id%}><b>Leer más</b>
-            </li>
-        {% endfor %}
-        </ul>
+                <span><b>{{nft.user}}</b> {{nft.title}}</span> <a href={%url 'detail_nfts' nft.id%}><b>Leer más</b>
+                </li>
+                {% endfor %}
+            </ul>
     {% else %}
     <span>No hay páginas aún</span>
     {% endif %}
 </div>
-    
-{% endblock 'header_block' %}
+{% endblock 'body_block' %}
+{% block background_block %}
+{% endblock background_block %}

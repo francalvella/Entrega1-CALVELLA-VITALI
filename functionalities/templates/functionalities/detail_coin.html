@@ -6,7 +6,9 @@
         Volver
     </a>
 </p>
-<p>
+{% endblock 'header_block' %}
+{% block 'body_block' %}
+<ul>
     <li>Nombre: <b>{{object.name}}</b></li>
     <li>Valor: <b>{{object.value}} U$D</b></li>
     <li>Información:{% if object.info %}
@@ -15,5 +17,7 @@
         No hay información de esta moneda
         {% endif %}
     </li>
-</p>
-{% endblock 'header_block' %}
+</ul>
+{% endblock 'body_block' %}
+{% block background_block %}
+{% endblock background_block %}

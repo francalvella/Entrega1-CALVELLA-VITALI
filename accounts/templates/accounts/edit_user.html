@@ -1,11 +1,14 @@
 {% extends 'index/index.html' %}
-
-{% block 'header_block' %}
+{% block background_block %}
+{% endblock background_block %}
+{% block header_block %}
 <p>
     <a href={%url 'index'%}>
         Volver
     </a>
 </p>
+{% endblock header_block %}
+{% block 'body_block' %}
 <form action={%url 'edit'%} method='post' autocomplete="off" enctype='multipart/form-data'>
     {% csrf_token %}
     <table>
@@ -16,4 +19,4 @@
 {% if msg %}
     <p>{{msg}}</p>
 {% endif %}
-{% endblock 'header_block' %}
+{% endblock 'body_block' %}

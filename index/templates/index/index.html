@@ -10,6 +10,14 @@
         <title>Un Blog de Blockchain</title>
     </head>
     <body>
+    {% block background_block %}
+    <style>
+        :root{
+            background-image: url(../../static/assets/img/1267600.webp);
+        }
+    </style>
+    {% endblock background_block %}
+
     <nav class="side-nav-container">
         <ul class="side-nav">
             {% if request.user.is_authenticated %}
@@ -44,13 +52,13 @@
                         <a class="nav-text" id="page" href={% url 'index' %}>Home</a> 
                     </li>
                     <li class="nav-element">
-                        <a class="nav-text" id="page" href={% url 'index' %}>Noticias</a> 
+                        <a class="nav-text" id="page" href={% url 'article' %}>Noticias</a> 
                     </li>
                     <li class="nav-element">
                         <a class="nav-text" id="nfts" href={% url 'nfts' %}>NFTs</a> 
                     </li>
                     <li class="nav-element">
-                        <a class="nav-text" id="contracts" href="#">Smart Contracts</a> 
+                        <a class="nav-text" id="contracts" href={% url 'smart_contracts' %}>Smart Contracts</a> 
                     </li>
                     <li class="nav-element" id="coins">
                         <a class="nav-text" href={% url 'coins' %}>Criptomonedas</a>  
@@ -67,19 +75,17 @@
         </nav>
     </header>
     <section class="main-container">
-        {% block 'header_block_prof' %}
-
-        {% endblock 'header_block_prof' %}
 
         {% block 'header_block' %}
 
         {% endblock 'header_block' %}
 
-        
+        <div class='form-container'>
         {% block 'body_block' %}
         
         
         {% endblock 'body_block' %}
+        </div>
     </section>
     <footer class="footer-container">
         <ul class="footer-nav">
@@ -88,5 +94,7 @@
             </li>
         </ul>
     </footer>
+
+    
 </body>
 </html>

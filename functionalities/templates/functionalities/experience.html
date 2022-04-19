@@ -1,11 +1,11 @@
 {% extends 'index/index.html' %}
 
-{% block 'header_block' %}
-    <h1>Deja tu experiencia!</h1>
-    <form action='' method='post' autocomplete="off">
-        {% csrf_token %}
-        <table>
-            {{form.as_table}}
+{% block 'body_block' %}
+<h1>Deja tu experiencia!</h1>
+<form action='' method='post' autocomplete="off">
+    {% csrf_token %}
+    <table>
+        {{form.as_table}}
         </table>
         <button class="button">Publicar</button>
     </form>
@@ -18,14 +18,15 @@
         <ul>
             {% for exp in experiences_array %}
             <li>
-                <b>{{exp}}</b>: {{exp.experience}}
+                <b>{{exp}}</b>: {{exp.experience}} - ({{exp.ocupation}}) - 
+                <a class='delete-views' href={%url 'delete_experience' exp.id%}>Borrar</a>
             </li>
             {% endfor %}
         </ul>
         {% else %}
         <span>No hay experiencias aún. </span>
         {% endif %}
-    </div>
-    
-
-{% endblock 'header_block' %}
+    </div>    
+    {% endblock 'body_block' %}
+    {% block background_block %}
+    {% endblock background_block %}

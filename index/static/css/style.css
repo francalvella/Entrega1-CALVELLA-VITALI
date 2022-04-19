@@ -1,6 +1,6 @@
 
 :root {
-    background-color: #ccc;
+    background-color: #f3f3f3;
 }
 
 a {
@@ -14,13 +14,9 @@ a {
 
 
 
-
-
-
-
 .side-nav-container {
-    /* background-color: #1fc71f; */
-    background-color: #000;
+    background-color: #141414;
+    border-bottom: solid black 1px;
 }
     .side-nav {
         display: flex;
@@ -131,7 +127,8 @@ a {
                             font-weight: 800;
                         }
 .main-container {
-    height: 70vh;
+    height: auto;
+    min-height: 70vh;
 }
 
     .main-container > * {
@@ -140,10 +137,43 @@ a {
 
     .main-container > p {
         margin: 5px;
+        padding: 5px;
     }
 
     .main-container > p > a {
         background-color: #99ff99;
+        padding: 5px 15px;
+        border-radius: 3px;
+        font-size: 16px;
+    }
+
+    .articles-container{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: 90%;
+        flex-grow: 1;
+    }
+
+
+    .article {
+        background-color: #c3c3c3;
+        max-width: 450px;
+        padding: 5px;
+        margin: 5px;
+    }
+
+    .date {
+        text-align: right;
+        font-size: small;
+        font-weight: 700;
+        color: #737373;
+    }
+    
+
+    .form-container > p > a {
+        background-color: #99ff99;
+        margin-top: 5px;
         padding: 5px 15px;
         border-radius: 3px;
         font-size: 16px;
@@ -155,6 +185,7 @@ a {
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        margin-bottom: 6px;
     }
 
         form > *{
@@ -168,24 +199,21 @@ a {
             margin: 30px;
         }   
 
+        .form-container {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+        }
+
         form > button {
             padding: 5px 15px;
+            margin-bottom: 5px;
             cursor: pointer;
             border: none;
             outline: none;
             background-color: #99ff99;
             font-weight: 700;
-        } 
-
-        form > button:hover {
-            padding: 8px 20px;
-            cursor: pointer;
-            border: none;
-            outline: none;
-            background-color: #bbffbb;
-            transition: .3s;
-            font-weight: 700;
-        } 
+        }  
 
         td > input {
             background: transparent;

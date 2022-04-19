@@ -1,11 +1,14 @@
 {% extends 'index/index.html' %}
-
+{% block background_block %}
+{% endblock background_block %}
 {% block 'header_block' %}
 <p>
     <a href={%url 'coins'%}>
         Volver
     </a>
 </p>
+{% endblock 'header_block' %}
+{% block 'body_block' %}
 <form action='' method='post' autocomplete="off">
     {% csrf_token %}
     <table>
@@ -13,4 +16,4 @@
     </table>
     <button class="button">Editar</button>
 </form>
-{% endblock 'header_block' %}
+{% endblock 'body_block' %}

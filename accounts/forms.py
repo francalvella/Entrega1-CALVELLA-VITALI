@@ -14,7 +14,7 @@ class Project_user_form(UserCreationForm):
         help_texts = { k: '' for k in fields}
 
 
-class Edit_user(forms.Form):
+class Edit_User(forms.Form):
     avatar = forms.ImageField(required=False)
     email = forms.CharField()
     first_name = forms.CharField(max_length=20, label='Nombre', required=False)

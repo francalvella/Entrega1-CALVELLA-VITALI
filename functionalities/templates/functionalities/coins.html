@@ -1,13 +1,16 @@
 {% extends 'index/index.html' %}
-
+{% block background_block %}
+{% endblock background_block %}
 {% block 'header_block' %}
 <p>
     <a href={%url 'index'%}>
         Volver
     </a>
 </p>
+{% endblock 'header_block' %}
+{% block 'body_block' %}
 <div>
-    <h1>Criptomonedas</h1>
+    <h1 style="text-align:center">Criptomonedas</h1>
     <form class="form" action='' method='get' autocomplete="off">
         {% csrf_token %}
         <table>
@@ -29,18 +32,18 @@
         Lista de Criptomonedas
     </h3>
     {% if coins_array %}
-        <ul>
-            {% for coin in coins_array %}
+    <ul>
+        {% for coin in coins_array %}
             <li>
-                <span>{{coin}}</span> <a href={%url 'detail_coin' coin.id%}><b>Leer más</b></a>
+                <span>{{coin}}</span> <a href={%url 'detail_coin' coin.id%}> - <b>Leer más</b></a>
                 <a class='edit-views' href={%url 'edit_coin' coin.id%}>Editar</a>
                 <a class='delete-views' href={%url 'delete_coin' coin.id%}>Borrar</a>
             </li>
             {% endfor %}
         </ul>
-    {% else %}
+        {% else %}
     <span>No hay Criptomonedas aún. </span>
     {% endif %}
 </div>
+{% endblock 'body_block' %}
     
-{% endblock 'header_block' %}

@@ -4,7 +4,7 @@ from django.contrib.auth import login, authenticate
 from django.contrib.auth.decorators import login_required
 
 from .models import User_extension
-from .forms import Edit_user, Project_user_form
+from .forms import Edit_User, Project_user_form
 
 
 # Create your views here.
@@ -50,7 +50,7 @@ def edit(request):
     logued_user_extension, _ = User_extension.objects.get_or_create(logued_user)
     
     if request.method == 'POST':
-        form = Edit_user(request.POST, request.FILES)
+        form = Edit_User(request.POST, request.FILES)
         if form.is_valid():
             data = form.cleaned_data
             logued_user_extension.avatar = data.get("avatar", '')
@@ -70,14 +70,14 @@ def edit(request):
             return render(request, 'index/index.html', {'form': form, 'msg': '', 'avatar_url': avatar_url(request.user)})
         else:
             return render(request, 'accounts/edit_user.html', {'form': form, 'msg': 'El usuario no es válido', 'avatar_url': avatar_url(request.user)})
-    form = Edit_user(
+    form = Edit_User(
         initial={
             'email': logued_user.email,
             'first_name': logued_user.first_name,
             'last_name': logued_user.last_name
         }
     )
-    return render(request, 'accounts/edit_user.html', {'form': form})
+    return render(request, 'accounts/edit_user.html', {'form': form, 'avatar_url': avatar_url(request.user)})
 
 def avatar_url(user):
     try:
