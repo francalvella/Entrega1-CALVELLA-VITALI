@@ -1,11 +1,11 @@
 AUTORES: Franco Calvella y Franco Vitali Romani.
 
 1 La parte inicial es llamada 'Inicio' y corresponde al index.html
-2 Clickeamos en Iniciar Sesión y creamos nuestro ususario (Posteriormente usaremos lo aprendido en el plagroundavanzado para este sector, nos sirve mientras tanto para la pre entrega)
-3 Esto nos redireccionará mediante un redirect denuevo a Inicio. 
-4 De aca, podemos ir a Criptomonedas, donde aparecerá un listado de las monedas agregadas a la BD.
-5 En esta vista podemos buscar las monedas, las cuales apareceran con su valor en dolares al costado.
-6 Si el ususario conoce otra criptomoneda, puede añadirla seleccionando Agregar Moneda.
-7 Cuando agreguemos una moneda, nos mantendra en la misma página
-8 Por último, seleccionamos Deja Tu Experiencia. Podemos hacer un 'POST' de nuestras experiencias con blockchain. Esto nos retorna a Inicio.
-
+2 Podemos tanto crear nuestro usuario o iniciar sesion con un usuario ya creado.
+3 Al crear un usuario se creará el usuario basico, al cual podremos editar con algunas cosas extra al iniciar sesión.
+4 Luego tendremos varias opciones, en la sección de noticias podremos agregar las ultimas novedades del topico o escribir acerca de un tema afin que nos interese. 
+5 Una vez adentro podremos clickear en la nota que nos interese para ingresar a una vista ampliada. Esta vista nos ofrecerá la opción de borrarla.
+6 Luego podemos ingresar a la sección de NFTs. Esta seccion funciona como un sector de reseñas a posedores de NFT, e incluye un buscador. Al igual que antes, podemos ingresar a una vista ampliada.
+7 De manera identica funciona el sector de smart contracts. 
+8 Por último tenemos la sección de Criptomonedas donde podremos cargar las monedas que conozcamos, junto con información de la misma y el valor para que otros usuarios las conozcan. Debido al caracter cambiante de las cripto, este sector ofrece la posibilidad de crear, editar, borrar, y ver en detalle.
+9 Si quere saber más sobre mi, siempre puede entrar por la parte inferior en about us. 

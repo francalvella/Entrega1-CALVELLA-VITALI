@@ -1,3 +1,4 @@
+from os import link
 from django.shortcuts import redirect, render
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login, authenticate
@@ -54,6 +55,7 @@ def edit(request):
         if form.is_valid():
             data = form.cleaned_data
             logued_user_extension.avatar = data.get("avatar", '')
+            logued_user_extension.link = data.get("link", '')
             logued_user.email = data.get('email', '')
             logued_user.first_name = data.get('first_name', '')
             logued_user.last_name = data.get('last_name', '')
@@ -74,7 +76,8 @@ def edit(request):
         initial={
             'email': logued_user.email,
             'first_name': logued_user.first_name,
-            'last_name': logued_user.last_name
+            'last_name': logued_user.last_name,
+            'link': logued_user_extension.link
         }
     )
     return render(request, 'accounts/edit_user.html', {'form': form, 'avatar_url': avatar_url(request.user)})

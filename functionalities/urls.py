@@ -17,7 +17,7 @@ urlpatterns = [
     path('moreinfo/<int:pk>', views.detail_article.as_view(), name='detail_article'),
     path('smart-contracts/moreinfo/<int:pk>', views.detail_smart_contracts.as_view(), name='detail_smart_contracts'),
     path('coins/experience/delete/<int:pk>', views.delete_experience.as_view(), name='delete_experience'),
-    path('/delete/<int:pk>', views.delete_article.as_view(), name='delete_article'),
+    path('delete/<int:pk>', views.delete_article.as_view(), name='delete_article'),
     path('coins/delete/<int:pk>', views.delete_coin.as_view(), name='delete_coin'),
 
 ]

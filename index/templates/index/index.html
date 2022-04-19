@@ -7,6 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href={% static "css/style.css" %} rel="stylesheet" />        
         <link rel="stylesheet" href={% static "css/normalize.css" %}/>
+        <link rel="icon" href="../../static/assets/img/Bitcoin-Logo.png">
         <title>Un Blog de Blockchain</title>
     </head>
     <body>
@@ -22,7 +23,7 @@
         <ul class="side-nav">
             {% if request.user.is_authenticated %}
             <li class="side-nav-element">
-                <img src={{avatar_url}} alt="Foto de Perfil" height='30' style="border-radius: 8px">
+                <img src={{request.user.user_extension.avatar.url}} alt="Foto de Perfil" height='30' style="border-radius: 8px">
             </li>
             <li class="side-nav-element">
                 <a href={% url 'edit' %} class="side-nav-text">Editar Perfil</a>
@@ -90,7 +91,7 @@
     <footer class="footer-container">
         <ul class="footer-nav">
             <li class="footer-nav-element">
-                <a class="footer-nav-text" href="">About Us</a>
+                <a class="footer-nav-text" href="{% url 'about' %}">About Us</a>
             </li>
         </ul>
     </footer>

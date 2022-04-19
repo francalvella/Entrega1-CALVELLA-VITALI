@@ -19,6 +19,7 @@ class Edit_User(forms.Form):
     email = forms.CharField()
     first_name = forms.CharField(max_length=20, label='Nombre', required=False)
     last_name = forms.CharField(max_length=20, label='Apellido', required=False)
+    link = forms.URLField(max_length=200)
     password1 = forms.CharField(label='Contraseña', widget=forms.PasswordInput(), required=False)
     password2 = forms.CharField(label='Repetir contraseña', widget=forms.PasswordInput(), required=False)
     
