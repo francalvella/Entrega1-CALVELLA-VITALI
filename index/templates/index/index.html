@@ -23,7 +23,13 @@
         <ul class="side-nav">
             {% if request.user.is_authenticated %}
             <li class="side-nav-element">
-                <img src={{request.user.user_extension.avatar.url}} alt="Foto de Perfil" height='30' style="border-radius: 8px">
+                {% if request.user.user_extension.avatar.url %}
+                    <a href={% url 'profile' %}>
+                        <img src={{request.user.user_extension.avatar.url}} alt="Foto de Perfil" height='30' style="border-radius: 8px">
+                    </a>
+                {% else %}
+                    <img src="../../static/assets/img/Bitcoin-Logo.png" alt="Foto de Perfil" height='30' style="border-radius: 8px">
+                {% endif %}
             </li>
             <li class="side-nav-element">
                 <a href={% url 'edit' %} class="side-nav-text">Editar Perfil</a>

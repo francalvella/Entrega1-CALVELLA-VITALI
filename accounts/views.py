@@ -4,8 +4,8 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.decorators import login_required
 
-from .models import User_extension
-from .forms import Edit_User, Project_user_form
+from .models import User_Extension
+from .forms import Edit_User, Project_User_Form
 
 
 # Create your views here.
@@ -34,28 +34,29 @@ def login_view(request):
 
 def signin(request):
     if request.method == 'POST':
-        form = Project_user_form(request.POST)
+        form = Project_User_Form(request.POST)
         if form.is_valid():
-            username = form.cleaned_data['username']
             form.save()
             return render(request, 'index/index.html', {'form': form, 'msg': ''})
         else:
             return render(request, 'accounts/signin.html', {'form': form, 'msg': 'El usuario no es válido'})
-    form = Project_user_form()
+    form = Project_User_Form()
     
     return render(request, 'accounts/signin.html', {'form': form, 'msg': None})
 
 @login_required
 def edit(request):
     logued_user = request.user
-    logued_user_extension, _ = User_extension.objects.get_or_create(logued_user)
+    logued_user_extension, extension_created = User_Extension.objects.get_or_create(user=logued_user)
     
     if request.method == 'POST':
         form = Edit_User(request.POST, request.FILES)
         if form.is_valid():
             data = form.cleaned_data
-            logued_user_extension.avatar = data.get("avatar", '')
+            if data.get("avatar", ''):
+                logued_user_extension.avatar = data.get("avatar", '')
             logued_user_extension.link = data.get("link", '')
+            logued_user_extension.has_avatar = extension_created
             logued_user.email = data.get('email', '')
             logued_user.first_name = data.get('first_name', '')
             logued_user.last_name = data.get('last_name', '')
@@ -64,14 +65,14 @@ def edit(request):
                     if data.get('password1')==data.get('password2'):
                         logued_user.set_password(data.get('password1'))
                     else: 
-                        return render(request, 'accounts/edit_user.html', {'form': form, 'msg': 'Las contraseñas no coinciden', 'avatar_url': avatar_url(request.user)})             
+                        return render(request, 'accounts/edit_user.html', {'form': form, 'msg': 'Las contraseñas no coinciden'})             
                 else: 
-                    return render(request, 'accounts/edit_user.html', {'form': form, 'msg': 'La contraseña debe tener más de 8 caracteres', 'avatar_url': avatar_url(request.user)})             
+                    return render(request, 'accounts/edit_user.html', {'form': form, 'msg': 'La contraseña debe tener más de 8 caracteres'})             
             logued_user.save()
             logued_user_extension.save()
-            return render(request, 'index/index.html', {'form': form, 'msg': '', 'avatar_url': avatar_url(request.user)})
+            return render(request, 'index/index.html', {'form': form, 'msg': ''})
         else:
-            return render(request, 'accounts/edit_user.html', {'form': form, 'msg': 'El usuario no es válido', 'avatar_url': avatar_url(request.user)})
+            return render(request, 'accounts/edit_user.html', {'form': form, 'msg': 'El usuario no es válido'})
     form = Edit_User(
         initial={
             'email': logued_user.email,
@@ -80,10 +81,8 @@ def edit(request):
             'link': logued_user_extension.link
         }
     )
-    return render(request, 'accounts/edit_user.html', {'form': form, 'avatar_url': avatar_url(request.user)})
-
-def avatar_url(user):
-    try:
-        return User_extension.objects.filter(user=user)[0].avatar.url
-    except:
-        return ""
+    return render(request, 'accounts/edit_user.html', {'form': form})
+    
+@login_required
+def profile(request):
+    return render(request, 'accounts/profile.html', {})

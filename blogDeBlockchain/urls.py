@@ -17,10 +17,17 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
+from index.views import about
 
 urlpatterns = [
     path('', include('index.urls')),
     path('admin/', admin.site.urls),
+    path('about/', about, name='about'),
+    path('pages/', include('articles.urls')),
+    path('coins/', include('coins.urls')),
+    path('nfts/', include('nfts.urls')),
+    path('smart-contracts/', include('scontracts.urls')),
+    path('accounts/', include('accounts.urls')),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

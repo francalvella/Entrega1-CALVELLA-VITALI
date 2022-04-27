@@ -1,0 +1,23 @@
+{% extends 'index/index.html' %}
+
+{% block 'header_block' %}
+<p>
+    <a href={%url 'coins'%}>
+        Volver
+    </a>
+</p>
+{% endblock 'header_block' %}
+{% block 'body_block' %}
+<ul>
+    <li>Nombre: <b>{{object.name}}</b></li>
+    <li>Valor: <b>{{object.value}} U$D</b></li>
+    <li>Información:{% if object.info %}
+        {{object.info | safe}}
+        {% else %}
+        No hay información de esta moneda
+        {% endif %}
+    </li>
+</ul>
+{% endblock 'body_block' %}
+{% block background_block %}
+{% endblock background_block %}

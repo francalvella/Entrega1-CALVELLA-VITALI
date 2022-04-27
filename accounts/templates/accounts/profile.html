@@ -1,0 +1,26 @@
+{% extends 'index/index.html' %}
+
+{% block 'header_block' %}
+<p>
+    <a href={%url 'index'%}>
+        Volver
+    </a>
+</p>
+{% endblock 'header_block' %}
+{% block 'body_block' %}
+<ul>
+    <img src={{request.user.user_extension.avatar.url}} height=225px>
+    <li>Usuario: <b>{{request.user}}</b></li>
+    <li>Nombre: <b>{{request.user.first_name}}</b></li>
+    <li>Apellido: <b>{{request.user.last_name}}</b></li>
+    <li>E-mail: <b>{{request.user.email}}</b></li>
+    {% if request.user.user_extension.link %}
+        <li>Link: <b><a href={{request.user.user_extension.link}} target=_blanck>{{request.user.user_extension.link}}</a></b></li>
+    {% else %}
+    <li>Link: <b>Sin información</b></li>
+    {% endif %}
+</ul>
+<a href={% url 'edit' %} class='edit-button'>Editar</a>
+{% endblock 'body_block' %}
+{% block background_block %}
+{% endblock background_block %}

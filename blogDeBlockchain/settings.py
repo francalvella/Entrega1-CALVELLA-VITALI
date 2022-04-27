@@ -38,7 +38,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'index',
-    'functionalities',
+    'articles',
+    'coins',
+    'scontracts',
+    'nfts',
     'accounts',
     'ckeditor'
 ]

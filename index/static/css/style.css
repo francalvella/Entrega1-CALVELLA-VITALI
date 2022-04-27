@@ -274,6 +274,24 @@ a {
             transition: background-color .3s;
         }
 
+        .edit-button {
+            padding: 5px 15px;
+            cursor: pointer;
+            border: none;
+            outline: none;
+            background-color: #1fc71f;
+            font-weight: 700;
+        }
+
+        .edit-button:hover {
+            padding: 5px 15px;
+            cursor: pointer;
+            border: none;
+            outline: none;
+            background-color: #4ff74f;
+            transition: background-color .3s;
+        }
+
 .footer-container {
     background-color: black;
     height: 85px;
