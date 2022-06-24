@@ -25,8 +25,6 @@ urlpatterns = [
     path('about/', about, name='about'),
     path('pages/', include('articles.urls')),
     path('coins/', include('coins.urls')),
-    path('nfts/', include('nfts.urls')),
-    path('smart-contracts/', include('scontracts.urls')),
     path('accounts/', include('accounts.urls')),
 ]
 

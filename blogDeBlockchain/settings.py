@@ -40,8 +40,6 @@ INSTALLED_APPS = [
     'index',
     'articles',
     'coins',
-    'scontracts',
-    'nfts',
     'accounts',
     'ckeditor'
 ]

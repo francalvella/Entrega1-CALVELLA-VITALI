@@ -2,7 +2,7 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 
-class Project_User_Form(UserCreationForm):
+class ProjectUserForm(UserCreationForm):
     
     email = forms.CharField()
     password1 = forms.CharField(label='Contraseña', widget=forms.PasswordInput())
@@ -14,7 +14,7 @@ class Project_User_Form(UserCreationForm):
         help_texts = { k: '' for k in fields}
 
 
-class Edit_User(forms.Form):
+class EditUser(forms.Form):
     avatar = forms.ImageField(required=False)
     email = forms.CharField()
     first_name = forms.CharField(max_length=20, label='Nombre', required=False)

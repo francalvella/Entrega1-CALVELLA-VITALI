@@ -3,9 +3,8 @@ from django.shortcuts import redirect, render
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.decorators import login_required
-
-from .models import User_Extension
-from .forms import Edit_User, Project_User_Form
+from .models import UserExtension
+from .forms import EditUser, ProjectUserForm
 
 
 # Create your views here.
@@ -34,23 +33,23 @@ def login_view(request):
 
 def signin(request):
     if request.method == 'POST':
-        form = Project_User_Form(request.POST)
+        form = ProjectUserForm(request.POST)
         if form.is_valid():
             form.save()
             return render(request, 'index/index.html', {'form': form, 'msg': ''})
         else:
             return render(request, 'accounts/signin.html', {'form': form, 'msg': 'El usuario no es válido'})
-    form = Project_User_Form()
+    form = ProjectUserForm()
     
     return render(request, 'accounts/signin.html', {'form': form, 'msg': None})
 
 @login_required
 def edit(request):
     logued_user = request.user
-    logued_user_extension, extension_created = User_Extension.objects.get_or_create(user=logued_user)
+    logued_user_extension, extension_created = UserExtension.objects.get_or_create(user=logued_user)
     
     if request.method == 'POST':
-        form = Edit_User(request.POST, request.FILES)
+        form = EditUser(request.POST, request.FILES)
         if form.is_valid():
             data = form.cleaned_data
             if data.get("avatar", ''):
@@ -65,15 +64,15 @@ def edit(request):
                     if data.get('password1')==data.get('password2'):
                         logued_user.set_password(data.get('password1'))
                     else: 
-                        return render(request, 'accounts/edit_user.html', {'form': form, 'msg': 'Las contraseñas no coinciden'})             
+                        return render(request, 'accounts/EditUser.html', {'form': form, 'msg': 'Las contraseñas no coinciden'})             
                 else: 
-                    return render(request, 'accounts/edit_user.html', {'form': form, 'msg': 'La contraseña debe tener más de 8 caracteres'})             
+                    return render(request, 'accounts/EditUser.html', {'form': form, 'msg': 'La contraseña debe tener más de 8 caracteres'})             
             logued_user.save()
             logued_user_extension.save()
             return render(request, 'index/index.html', {'form': form, 'msg': ''})
         else:
-            return render(request, 'accounts/edit_user.html', {'form': form, 'msg': 'El usuario no es válido'})
-    form = Edit_User(
+            return render(request, 'accounts/EditUser.html', {'form': form, 'msg': 'El usuario no es válido'})
+    form = EditUser(
         initial={
             'email': logued_user.email,
             'first_name': logued_user.first_name,
@@ -81,7 +80,7 @@ def edit(request):
             'link': logued_user_extension.link
         }
     )
-    return render(request, 'accounts/edit_user.html', {'form': form})
+    return render(request, 'accounts/EditUser.html', {'form': form})
     
 @login_required
 def profile(request):

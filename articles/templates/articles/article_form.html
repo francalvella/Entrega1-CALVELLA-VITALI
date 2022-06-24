@@ -9,7 +9,7 @@
 </p>
 {% endblock 'header_block' %}
 {% block 'body_block' %}
-<form action='' method='post' autocomplete="off">
+<form action='' method='post' autocomplete="off" enctype="multipart/form-data">
     {% csrf_token %}
     <table>
         {{form.media}}
